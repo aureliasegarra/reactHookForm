@@ -9,45 +9,49 @@ const Form = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({
-    mode: 'onChange',
-  });
+  } = useForm();
   const onSubmit = (values) => {
     console.log(values);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-
-      <label htmlFor="email">Email</label>
-      <input
-        placeholder="bluebill1049@hotmail.com"
-        type="text"
-        {...register('email', {
-          required: 'this is required',
-          pattern: {
-            value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            message: 'Invalid email address',
-          },
-        })}
-      />
-      {errors.email && <p>{errors.email.message}</p>}
-
-      <label htmlFor="lastName">Password</label>
-      <input
-        placeholder="Enter your password"
-        {...register('password', {
-          required: 'this is required',
-          minLength: {
-            value: 8,
-            message: 'Min length is 8 characters',
-          },
-        })}
-      />
-      {errors.password && <p>{errors.password.message}</p>}
-
-      <input type="submit" />
-    </form>
+    <div className="container">
+      <h1 className="title">Login form</h1>
+      <h2 className="subtitle">with react-hook-form</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <div className="form_group">
+          <label htmlFor="email">Email</label>
+          <input
+            placeholder="Enter your email"
+            type="text"
+            className="form_control"
+            {...register('email', {
+              required: '🙏🏻 Please your email is required',
+              pattern: {
+                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                message: '🚨 Sorry, invalid email address format',
+              },
+            })}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+        </div>
+        <div className="form_group">
+          <label htmlFor="lastName">Password</label>
+          <input
+            placeholder="Enter your best password"
+            {...register('password', {
+              required: '🙏🏻 Please your password is required',
+              minLength: {
+                value: 8,
+                message: '😢 Sorry, Password must be 8 characters at minimum',
+              },
+            })}
+          />
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
+        <button type="submit" className="btn">Submit</button>
+      </form>
+    </div>
   );
 };
 

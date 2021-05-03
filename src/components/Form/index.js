@@ -10,7 +10,9 @@ const Form = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const onSubmit = (values) => {
+    // Log the object values if form is valid
     console.log(values);
   };
 
@@ -36,7 +38,7 @@ const Form = () => {
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <div className="form_group">
-          <label htmlFor="lastName">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             placeholder="Enter your best password"
             {...register('password', {

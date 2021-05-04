@@ -25,8 +25,10 @@ const Form = () => {
           <label htmlFor="email">Email</label>
           <input
             placeholder="Enter your email"
-            type="text"
+            type="email"
             className="form_control"
+            name="email"
+            // register the input into the hook by calling the register function
             {...register('email', {
               required: '🙏🏻 Please your email is required',
               pattern: {
@@ -41,6 +43,8 @@ const Form = () => {
           <label htmlFor="password">Password</label>
           <input
             placeholder="Enter your best password"
+            name="password"
+             // register the input into the hook by calling the register function
             {...register('password', {
               required: '🙏🏻 Please your password is required',
               minLength: {

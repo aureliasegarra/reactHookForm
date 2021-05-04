@@ -49,6 +49,15 @@ padding: 10px 10px;
 font-size: 0.9em;
 }
 
+.field.is-invalid {
+  border-radius: 20px;
+  border: none;
+  background-color: #F4F4F4;
+  padding: 10px 10px;
+  font-size: 0.9em;
+  border: 1px solid red;
+}
+
 .btn {
 width: 60%;
 border-radius: 20px;

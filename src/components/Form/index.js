@@ -25,9 +25,9 @@ const Form = () => {
           <label htmlFor="email">Email</label>
           <input
             placeholder="Enter your email"
-            type="email"
-            className="form_control"
+            type="text"
             name="email"
+            className={`field ${errors.email ? 'is-invalid' : ''}`}
             // register the input into the hook by calling the register function
             {...register('email', {
               required: '🙏🏻 Please your email is required',
@@ -43,6 +43,8 @@ const Form = () => {
           <label htmlFor="password">Password</label>
           <input
             placeholder="Enter your best password"
+            type="password"
+            className={`field ${errors.password ? 'is-invalid' : ''}`}
             name="password"
              // register the input into the hook by calling the register function
             {...register('password', {
